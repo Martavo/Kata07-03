@@ -28,13 +28,11 @@ class Luchador {
         return $this->defensa;
     }
 
-    public function atacar() {
+    public function atacar():int {
         return rand(1, $this->fuerza);
     }
 
-    public function recibirDano($dano) {
-        $this->vida -= $dano;
-        $this->vida = max(0, $this->vida);
-        $this->vida = min(10, $this->vida);
+    public function recibirDano($dano):void {
+        $this->vida = max(0, min(10, $this->vida - $dano));
     }
 }
